@@ -2,12 +2,12 @@ import StudentInfo from "./student-info";
 
 export default function Page() {
     return (
-      <main>
-        <h1>Shopping List</h1>
-        <div>
-          <StudentInfo/>
-       </div>
-      </main>
+        <main className="flex min-h-screen flex-col items-center justify-between p-24">
+          <h1>Shopping List</h1>
+          <div>
+            <StudentInfo/>
+         </div>
+        </main>
     );
   }
 

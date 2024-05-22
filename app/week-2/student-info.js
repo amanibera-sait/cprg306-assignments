@@ -1,8 +1,10 @@
+import Link from "next/link";
+
 export default function StudentInfo(){
     return(
-    <div>
+    <div className="bol">
         Amani Bera <br></br>
-        <a><link rel="stylesheet" href="https://github.com/amanibera-sait/cprg306-assignments"/></a>
+        <Link href="https://github.com/amanibera-sait/cprg306-assignments">Click here for the repo link</Link>
     </div>
     );
     
