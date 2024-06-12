@@ -20,7 +20,7 @@ export function NewItem() {
       }
 
     return(
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="flex-1 border-2 grid-cols-2 grid-rows-3 content-center">
             <label>
                 <input type="text" placeholder="Name" value={name}/>
                 <input type="text" placeholder="Name" value={quantity}/>
