@@ -6,53 +6,45 @@ import Item from "@/app/week-5/item.js"
 import { list } from "postcss";
 
 
-const listOfItems = [itemJson];
-
-const SortedByName = listOfItems.sort((a, b) => a - b);
-
-const SortedByCategory = listOfItems.map(listOfItems.sort());
-
-
 export default function ItemList(){
 
-    const [sortBy, setSortBy] = useState("name")
+    const listOfItems = itemJson;
+
+    const [sortBy, setSortBy] = useState();
 
     
     function setSortByName(){
-        setSortBy(sortBy => "name");
+        setSortBy(sortedOption => "name");
+        SortItems();
     }
     
     function setSortByCategory(){
-        setSortBy(sortBy => "category");
+        setSortBy(sortedOption => "category");
+        SortItems();
     }
     
     function SortItems(){
-        if (sortBy == "name"){
-            return (
-                <>
-                <button onClick={setSortByName}>Name</button>
-                <button onClick={setSortByCategory}>Category</button>
-                <ul className="divide-y divide-gray-200">
-                  {listOfItems.map((item, index) => (
-                    <Item key={index} {...item} />
-                  ))}
-                </ul>
-                </>
-              );
-        }
-        else if (sortBy == "category"){
-            return (
-                <>
-                <button onClick={setSortByName}>Name</button>
-                <button onClick={setSortByCategory}>Category</button>
-                <ul className="divide-y divide-gray-200">
-                  {listOfItems.map((item, index) => (
-                    <Item key={index} {...item} />
-                  ))}
-                </ul>
-                </>
-              );
+
+      const sortedOption = sortBy;
+        if (sortedOption == "name") {
+          return listOfItems.sort((a, b) => a.category.localeCompare(b.category));
+          } else if (sortedOption == "category") {
+          return listOfItems.sort((a, b) => a.name.localeCompare(b.name));
         }
     }
 
+    return (
+      <>
+      <div className="flex col-span-2 p-6 space-x-7"> 
+        <p className="content-center font-bold">Sort By:</p>
+        <button className="rounded  bg-gray-400 font-bold text-gray-900 p-3 hover:bg-gray-500 hover:text-gray-100 active:bg-gray-200" onClick={setSortByName}>Name</button>
+        <button className="rounded  bg-gray-400 font-bold text-gray-900 p-3 hover:bg-gray-500 hover:text-gray-100 active:bg-gray-200" onClick={setSortByCategory}>Category</button>
+      </div>
+      <ul className="divide-y">
+        {listOfItems.map((item, index) => (
+          <Item key={index} {...item} />
+        ))}
+      </ul>
+      </>
+    );
 }
