@@ -1,9 +1,15 @@
-import NewItem from "./new-item";
+import { NewItem } from "@/components/new-item";
+import { ItemList }  from "./item-list";
+import  itemsData  from "./items.json";
 
-export default function Page(){
-    return(
-        <main className="bg-black h-screen">
-            <NewItem/>
+export default function Page() {
+
+
+    return (
+        <main>
+            hi
+          <NewItem/>
+          <ItemList/>
         </main>
-    )
-}
+    );
+  }
