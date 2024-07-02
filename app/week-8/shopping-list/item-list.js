@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import itemJson from "@/app/week-5/items.json"
-import Item from "@/app/week-5/item.js"
+import itemJson from "./items.json"
+import Item from "./item.js"
 
 
 export default function ItemList(){

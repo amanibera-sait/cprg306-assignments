@@ -1,13 +1,11 @@
-import { NewItem } from "@/components/new-item";
-import { ItemList }  from "./item-list";
-import  itemsData  from "./items.json";
+import NewItem  from "@/components/new-item";
+import ItemList  from "@/components/ItemList";
 
 export default function Page() {
 
 
     return (
         <main>
-            hi
           <NewItem/>
           <ItemList/>
         </main>
