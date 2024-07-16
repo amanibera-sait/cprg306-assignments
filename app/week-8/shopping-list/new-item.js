@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-export default function NewItem(onAddItem){
+export default function NewItem({onAddItem}){
     const [name, setName] = useState('');
     const [quantity, setQuantity] = useState(1);
     const [category, setCategory] = useState('produce');
@@ -16,7 +16,7 @@ export default function NewItem(onAddItem){
     };
 
     const handleButtonClick = () => {
-        alert(`Added item: ${name}, Quantity: ${quantity}, Category: ${category}`);
+        onAddItem({name, quantity, category})
     };
 
     return (
