@@ -16,6 +16,7 @@ export default function Home() {
             <Link href="/week-5"><button className="rounded flex auto-rows-auto bg-gray-400 font-bold text-gray-900 p-3 hover:bg-gray-500 hover:text-gray-100 active:bg-gray-200">Week 5</button></Link>
             <Link href="/week-6"><button className="rounded flex auto-rows-auto bg-gray-400 font-bold text-gray-900 p-3 hover:bg-gray-500 hover:text-gray-100 active:bg-gray-200">Week 6</button></Link>
             <Link href="/week-8"><button className="rounded flex auto-rows-auto bg-gray-400 font-bold text-gray-900 p-3 hover:bg-gray-500 hover:text-gray-100 active:bg-gray-200">Week 8</button></Link>
+            <Link href="/week-10"><button className="rounded flex auto-rows-auto bg-gray-400 font-bold text-gray-900 p-3 hover:bg-gray-500 hover:text-gray-100 active:bg-gray-200">Week 10</button></Link>
           </nav>
         </div>
       </main>
