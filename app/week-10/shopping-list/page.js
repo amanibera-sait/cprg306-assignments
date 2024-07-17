@@ -5,26 +5,42 @@ import { useRouter } from "next/navigation";
 import { useUserAuth } from "../_utils/auth-context";
 import ItemList from "./item-list";
 import NewItem from "./new-item";
-import itemsData from './items.json'
+import { getItems, addItem } from '../_services/shopping-list-service'
 import { useEffect, useState } from "react";
 
 
 export default function Page() {
   const router = useRouter()
   const { user, gitHubSignIn, firebaseSignOut } = useUserAuth();
+  const [items, setItems] = useState([])
 
-  useEffect(()=>{if (!user){
-    redirectUser()
-  }},[])
+
+  useEffect(() => {
+    if (!user){
+      redirectUser()
+    }
+    else {
+      loadItems()
+      
+    } 
+  }, [])
   
-  function redirectUser(){
-    router.push("/week-8")
+  async function loadItems() {
+    const data = await getItems(user.uid);
+    const itemsData = data.map(item, index);
+    console.log(`Data ${itemsData}`)
+    console.log(itemsData)
+    setItems(itemsData);
   }
 
-  const items= itemsData
+  function redirectUser(){
+    router.push("/week-10");
+  }
 
-  function handleAddItem({name, quantity, category}){
-    items.push({name, quantity, category})
+  async function handleAddItem({name, quantity, category}){
+    await addItem(user.uid, {name, quantity, category});
+    const updatedItems = await getItems(user.uid) 
+    setItems(updatedItems);
   }
 
   return (

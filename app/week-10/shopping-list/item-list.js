@@ -2,11 +2,12 @@
 
 import { useState } from "react";
 import Item from "./item.js"
+import { list } from "postcss";
 
 
 export default function ItemList({items}){
 
-    const listOfItems = items;
+    const listOfItems = [items];
 
     const [sortBy, setSortBy] = useState();
 
@@ -38,11 +39,13 @@ export default function ItemList({items}){
         <button className="rounded  bg-gray-400 font-bold text-gray-900 p-3 hover:bg-gray-500 hover:text-gray-100 active:bg-gray-200" onClick={setSortByName}>Name</button>
         <button className="rounded  bg-gray-400 font-bold text-gray-900 p-3 hover:bg-gray-500 hover:text-gray-100 active:bg-gray-200" onClick={setSortByCategory}>Category</button>
       </div>
-      <ul className="divide-y">
-        {listOfItems.map((item, index) => (
-          <Item key={index} {...item} />
-        ))}
-      </ul>
+        <div>
+          <ul className="divide-y">
+            {listOfItems.map((item, index) => (
+              <Item key={index} {...item}/>
+            ))}
+          </ul>
+        </div>
       </>
     );
 }
